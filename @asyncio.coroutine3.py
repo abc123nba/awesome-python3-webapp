@@ -10,3 +10,18 @@ def execute(sql, args):
 		except BaseException as e:
 			raise
         return affected
+
+from orm import Model,StringField,IntegerField
+
+class User(Model):
+	_table_ ='users'
+
+	id = IntegerField(primary_key=True)
+	name = StringField()
+
+#创建实例：
+User = User(id=123,name='Michael')
+#存入数据库：
+User.insert()
+
+        		        
